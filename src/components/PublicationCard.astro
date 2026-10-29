@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  authors: string;
+  venue: string;
+  year: string;
+  href?: string;
+}
+
+const { title, authors, venue, year, href} = Astro.props;
+---
+
+<article class="publication-card">
+  <h3>{href ? <a href={href}>{title}</a> : title}</h3>
+  <p class="card-detail">{authors}</p>
+  <p class="card-venue"><em>{venue}</em><span>{year}</span></p>
+</article>

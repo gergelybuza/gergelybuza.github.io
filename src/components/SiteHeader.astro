@@ -1,0 +1,16 @@
+---
+interface Props {
+  active: 'home' | 'research' | 'teaching';
+}
+
+const { active } = Astro.props;
+---
+
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label="Gergely Buza, home">Gergely Buza</a>
+  <nav aria-label="Main navigation">
+    <a href="/" aria-current={active === 'home' ? 'page' : undefined}>Home</a>
+    <a href="/research/" aria-current={active === 'research' ? 'page' : undefined}>Research</a>
+    <a href="/teaching/" aria-current={active === 'teaching' ? 'page' : undefined}>Teaching</a>
+  </nav>
+</header>

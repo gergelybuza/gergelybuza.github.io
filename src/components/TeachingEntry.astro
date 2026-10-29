@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  period: string;
+  detail?: string;
+  href?: string;
+}
+
+const { title, period, detail, href } = Astro.props;
+---
+
+<article class="teaching-entry">
+  <div>
+    <h3>{href ? <a href={href}>{title}</a> : title}</h3>
+    {detail && <p>{detail}</p>}
+  </div>
+  <time>{period}</time>
+</article>

@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+
+const preprints = [
+  {
+    title: 'An application of the parameterization method to evolution flows associated to nonautonomous systems',
+    authors: 'G. Buza and G. Haller',
+    venue: 'arXiv:2610.18078',
+    year: '2026',
+    href: 'https://arxiv.org/abs/2610.18078',
+  },
+  {
+    title: 'Spectral submanifold reduction for PDEs describing nonlinear continuum vibrations',
+    authors: 'G. Buza and G. Haller',
+    venue: 'arXiv:2607.10675',
+    year: '2026',
+    href: 'https://arxiv.org/abs/2607.10675',
+  },
+];
+
+const publications = [
+  {
+    title: 'Data-driven reduced modeling of delayed dynamical systems via spectral submanifolds',
+    authors: 'G. Abbasciano, G. Buza, and G. Haller',
+    venue: 'Chaos: An Interdisciplinary Journal of Nonlinear Science, 36(10)',
+    year: '2026',
+    href: 'https://doi.org/10.1063/5.0344712',
+  },
+  {
+    title: 'Parametric spectral submanifolds across Hopf bifurcations with applications to fluid dynamics',
+    authors: 'J. King, B. Kaszás, G. Buza, W. Jussiau, and G. Haller',
+    venue: 'Chaos: An Interdisciplinary Journal of Nonlinear Science, 36(10)',
+    year: '2026',
+    href: 'https://doi.org/10.1063/5.0334774',
+  },
+  {
+    title: 'Existence of spectral submanifolds in time delay systems',
+    authors: 'G. Buza and G. Haller',
+    venue: 'Journal of Nonlinear Science, 36(5), 109',
+    year: '2026',
+    href: 'https://doi.org/10.1007/s00332-026-10327-y',
+  },
+  {
+    title: 'Smooth invariant foliations and Koopman eigenfunctions about stable equilibria of semiflows',
+    authors: 'G. Buza',
+    venue: 'Journal of Differential Equations, 440, 113447',
+    year: '2025',
+    href: 'https://doi.org/10.1016/j.jde.2025.113447',
+  },
+  {
+    title: 'Spectral submanifolds of the Navier–Stokes equations',
+    authors: 'G. Buza',
+    venue: 'SIAM Journal on Applied Dynamical Systems, 23(2), 1052–1089',
+    year: '2024',
+    href: 'https://doi.org/10.1137/23M154858X',
+  },
+  {
+    title: 'Finite-amplitude elastic waves in viscoelastic channel flow from large to zero Reynolds number',
+    authors: 'G. Buza, M. Beneitez, J. Page, and R. R. Kerswell',
+    venue: 'Journal of Fluid Mechanics, 951, A3',
+    year: '2022',
+    href: 'https://doi.org/10.1017/jfm.2022.831',
+  },
+  {
+    title: 'Weakly nonlinear analysis of the viscoelastic instability in channel flow for finite and vanishing Reynolds numbers',
+    authors: 'G. Buza, J. Page, and R. R. Kerswell',
+    venue: 'Journal of Fluid Mechanics, 940, A11',
+    year: '2022',
+    href: 'https://doi.org/10.1017/jfm.2022.222',
+  },
+  {
+    title: 'Integral equations and model reduction for fast computation of nonlinear periodic response',
+    authors: 'G. Buza, G. Haller, and S. Jain',
+    venue: 'International Journal for Numerical Methods in Engineering, 122(17), 4637–4659',
+    year: '2021',
+    href: 'https://doi.org/10.1002/nme.6740',
+  },
+  {
+    title: 'Using spectral submanifolds for optimal mode selection in nonlinear model reduction',
+    authors: 'G. Buza, S. Jain, and G. Haller',
+    venue: 'Proceedings of the Royal Society A, 477(2246), 20200725',
+    year: '2021',
+    href: 'https://doi.org/10.1098/rspa.2020.0725',
+  },
+  {
+    title: 'Establishing metrics and control laws for the learning process: Ball and beam balancing',
+    authors: 'G. Buza, J. Milton, L. Bencsik, and T. Insperger',
+    venue: 'Biological Cybernetics',
+    year: '2020',
+    href: 'https://doi.org/10.1007/s00422-020-00815-z',
+  },
+  {
+    title: 'Mathematical models for balancing tasks on a see-saw with reaction time delay',
+    authors: 'G. Buza and T. Insperger',
+    venue: '14th IFAC Workshop on Time Delay Systems, Budapest; IFAC-PapersOnLine, 51(14), 288–293',
+    year: '2018',
+    href: 'https://doi.org/10.1016/j.ifacol.2018.07.238',
+  },
+];
+---
+
+<BaseLayout title="Gergely Buza's webpage" description="Research publications by Gergely Buza.">
+  <div class="site-shell">
+    <SiteHeader active="research" />
+    <main class="page-main">
+      <header class="page-heading">
+        <h1>Research</h1>
+      </header>
+
+      <section class="page-section" aria-labelledby="preprints-title">
+        <h2 id="preprints-title">Preprints</h2>
+        <div class="publication-list">
+          {preprints.map((preprint) => <PublicationCard {...preprint} />)}
+        </div>
+      </section>
+
+      <section class="page-section" aria-labelledby="publications-title">
+        <h2 id="publications-title">Publications</h2>
+        <div class="publication-list">
+          {publications.map((publication) => <PublicationCard {...publication} />)}
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>

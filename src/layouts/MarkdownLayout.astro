@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title="Gergely Buza's webpage" description={frontmatter.description}>
+  <main class="reading-page">
+    <a class="back-link" href="/teaching/">← Back to teaching</a>
+    <article class="prose">
+      <p class="eyebrow">EXTRA MATERIAL</p>
+      <h1>{frontmatter.title}</h1>
+      {frontmatter.date && <p class="material-date">{frontmatter.date}</p>}
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

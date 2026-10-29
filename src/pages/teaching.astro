@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import TeachingEntry from '../components/TeachingEntry.astro';
+
+const teachingExperience = [
+  {
+    institution: 'ETH Zürich',
+    courses: [
+      { title: 'Nonlinear Dynamics and Chaos II', period: '2027' },
+      {
+        title: 'Nonlinear Dynamics and Chaos I',
+        detail: 'Jointly with George Haller',
+        period: '2026',
+        href: 'https://www.vorlesungen.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2026W&ansicht=KATALOGDATEN&lerneinheitId=203917&lang=en',
+      },
+    ],
+  },
+  {
+    institution: 'DAMTP, University of Cambridge',
+    courses: [
+      { title: 'Vector calculus supervisions', period: '2025' },
+      { title: 'Dynamical systems supervisions', period: '2021–2024' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Gergely Buza's webpage" description="Teaching experience at the University of Cambridge and ETH Zürich.">
+  <div class="site-shell">
+    <SiteHeader active="teaching" />
+    <main class="page-main">
+      <header class="page-heading">
+        <h1>Teaching</h1>
+      </header>
+      {teachingExperience.map((position) => (
+        <section class="teaching-institution" aria-label={position.institution}>
+          <h2>{position.institution}</h2>
+          <div class="teaching-list">
+            {position.courses.map((course) => <TeachingEntry {...course} />)}
+          </div>
+        </section>
+      ))}
+    </main>
+  </div>
+</BaseLayout>
